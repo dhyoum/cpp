@@ -5,7 +5,7 @@
 - conceptually resemble kernel threads
 
 ### Coroutines
-!(coroutine.png)
+![](coroutine.png)
 - when the invoker calls a coroutine, control immediately transfers into that coroutine; 
   when the coroutine yields, control immediately returns to its caller 
   (or, in the case of symmetric coroutines,to the designated next coroutine)

@@ -1,4 +1,4 @@
-## Distinguishing coroutines and fibers
+## Distinguishing fibers & coroutines
 
 ### Fiber 
 - user level thread

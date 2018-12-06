@@ -4,8 +4,8 @@
 - user level thread
 - conceptually resemble kernel threads
 
-### Coroutines
-![](coroutine.png)
+### [Coroutines](https://lewissbaker.github.io/2017/09/25/coroutine-theory)
+![AA](coroutine.png)
 - when the invoker calls a coroutine, control immediately transfers into that coroutine; 
   when the coroutine yields, control immediately returns to its caller 
   (or, in the case of symmetric coroutines,to the designated next coroutine)

@@ -10,6 +10,7 @@
   when the coroutine yields, control immediately returns to its caller 
   (or, in the case of symmetric coroutines,to the designated next coroutine)
 - coroutines do not resemble threads, more closely resembles an ordinary function,
+- [coroutine in C](https://gist.github.com/aprell/1951574)
 
 The fiber library extends the coroutine library by **adding a scheduler and the aforementioned synchronization mechanisms.**
 

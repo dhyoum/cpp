@@ -46,9 +46,37 @@ unsigned int func()
     return f(a,2);
 }
 
+class AA
+{
+public:
+    AA()
+    {
+        x = NULL;
+    }
+    ~AA()
+    {
+        delete x;
+    }
+    int a;
+    char* x;
+
+    void test()
+    {
+        x = new char();
+    }
+};
+
 int main()
 {
-    printf("%d\n", func());
-    MM::hello();
+    AA a;
+
+    printf("a = %lu\n", (char*)(&a.a) - (char*)&a);
+    printf("x = %lu\n", (char*)(&a.x) - (char*)&a);
+    printf("pointer x = %p\n", (&a.x));
+
+    printf("a.x = %p\n", a.x);
+    a.test();
+    printf("a.x = %p\n", a.x);
+
     return 0;
 }

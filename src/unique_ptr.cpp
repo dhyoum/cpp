@@ -66,9 +66,10 @@ class MyData
 int main()
 {
     printf("enter main\n");
-    // unique_ptr<MyType> b; error
 	unique_ptr<MyType> a(new MyType(10,20));
-	// unique_ptr<MyType> b = std::make_unique<MyType>(10,20); since C++14
+
+    unique_ptr<MyType> b14;
+	b14 = std::make_unique<MyType>(10,20); //  since C++14
     //
 	// unique_ptr<MyType> b(a); error
 	unique_ptr<MyType> b = std::move(a); // ok

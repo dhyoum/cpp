@@ -9,7 +9,7 @@ void *t_function(void *data)
     int i = 0;
     id = *((int *)data);
 
-    while(++i < 3)
+    while(++i < 2003)
     {
         printf("%d : %d\n", id, i);
         sleep(1);
@@ -37,11 +37,6 @@ int main()
         perror("thread create error : ");
         exit(0);
     }
-
-    pthread_join(p_thread[0], (void **)&status);
-    pthread_join(p_thread[1], (void **)&status);
-
-    sleep(5);
 
     return 0;
 }

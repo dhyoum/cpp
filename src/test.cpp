@@ -81,7 +81,7 @@ public:
         bool result = true;
 
         // Table table[] = { {a, 4, "error", 0}, {b, 8, "erro2", 0} };
-        Table table = Table(a, 4, "error", 0);
+        Table<int> table = Table<int>(a, 4, "error", 0);
 
         /*
         for (int i=0; i<2; i++)

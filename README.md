@@ -13,7 +13,7 @@
 ### Smart pointer
 - RAII again
 - polymophism
-- unique_ptr : [how to implement for pImple idiom?](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/) 
+- unique_ptr : [how to implement for pImpl idiom?](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/) 
 - shared_ptr : how to cast?
 ### Lambda function
 - review the global function

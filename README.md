@@ -1,6 +1,6 @@
 # C++11
 ### Rvalue reference
-- temporary
+- temporary variable
 - RVO
 - RAII ( ownership )
 ### Move semantics
@@ -9,15 +9,22 @@
 - POD / trivial
 ### Universal reference
 ### Perfect forwarding
-- forwarding
+- what is the concept of forwarding ?
 ### Smart pointer
 - RAII again
 - polymophism
+- unique_ptr : how to implement for pImple idiom ?
+- shared_ptr : how to cast?
 ### Lambda function
+- review the global function
+- how to capture ?
 - closure
 - free variable
 ### auto
+- how to check the type deduction ?
 ### const / constexpr
+- compile time constant
+- constexpr constructor
 ### Uniform initialize / initailzer_list
 ### thread
 ### mutex, condition_variable, atomic

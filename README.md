@@ -15,17 +15,17 @@
 - polymophism
 ### Lambda function
 - closure
-- freey variable
+- free variable
 ### auto
 ### const / constexpr
-### Uniform initialize 
-### initailzer_list
+### Uniform initialize / initailzer_list
 ### thread
 ### mutex, condition_variable, atomic
 ### future, promise, packaged_task
 ### boost::optional, boost::variant, boost:fibers
 
 ### link
+- [cpp core guide](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 - [cpprefernece](https://en.cppreference.com/w/)
 - [modoo](https://modoocode.com/135)
 - [soen](http://soen.kr/)

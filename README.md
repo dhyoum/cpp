@@ -13,12 +13,12 @@
 ### Smart pointer
 - RAII again
 - polymophism
-- unique_ptr : how to implement for pImple idiom ?
+- unique_ptr : [how to implement for pImple idiom?](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/) 
 - shared_ptr : how to cast?
 ### Lambda function
 - review the global function
 - how to capture ?
-- closure
+- [closure](https://en.wikipedia.org/wiki/Closure_(computer_programming))
 - free variable
 ### auto
 - how to check the type deduction ?

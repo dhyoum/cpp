@@ -14,7 +14,7 @@
 - RAII again
 - polymophism
 - unique_ptr : [how to implement for pImpl idiom?](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/) 
-- shared_ptr : how to cast?
+- shared_ptr : [how to cast?](https://stackoverflow.com/questions/1358143/downcasting-shared-ptrbase-to-shared-ptrderived)
 ### Lambda function
 - review the global function
 - how to capture ?
@@ -25,7 +25,10 @@
 ### const / constexpr
 - compile time constant
 - constexpr constructor
-### Uniform initialize / initailzer_list
+### Uniform initialize 
+- [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
+### initailzer_list
+Initializer lists may be implemented as a pair of pointers or pointer and length. Copying a std::initializer_list does not copy the underlying objects.
 ### thread
 ### mutex, condition_variable, atomic
 ### future, promise, packaged_task

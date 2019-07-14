@@ -39,3 +39,4 @@ Initializer lists may be implemented as a pair of pointers or pointer and length
 - [cpprefernece](https://en.cppreference.com/w/)
 - [modoo](https://modoocode.com/135)
 - [soen](http://soen.kr/)
+- [mingw](https://nuwen.net/)

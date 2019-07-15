@@ -10,11 +10,11 @@ void (*f)(int);
   Dialog dlg; (dlg.* f)(20);
   Dialog* pDlg; (pDlg->* f)(20);
 ```
-- operator new() : 사용자 정의 메모리 할당 방식 사용 가능 - 첫번째 인자는 size_t 로 해야함.
+- [operator new](https://en.cppreference.com/w/cpp/memory/new/operator_new) : 사용자 정의 메모리 할당 방식 사용 가능 - 첫번째 인자는 size_t 로 해야함.
 - placement new
   - 생성자만 호출하기 위해서 만든 operator new() 함수
   - 인자가 2개이상이고, 내부에 메모리할당이 없음.
-  - 마찬가지로, operator delete operator new[] 등도 같이 
+  - 마찬가지로, operator delete operator new[] 등도 같이 고려
 ```c
   // void* operator new(size_t sz, void* p) { return p; } c++ 표준에 있음
   Point* p = static_cast<Point*>(operator new(sizeof(Point))); // allocate memory
@@ -24,9 +24,9 @@ void (*f)(int);
 ```
 ```c
   Point* p1 = new Point(0, 0);
-  Point* p2 = static_cast<Point*>(operator new(sizeof(Point) * 10));
+  Point* p2 = static_cast<Point*>(operator new(sizeof(Point) * 10)); // 1 argument
   for (int i = 0; i < 10; i++)
-    new (&p2[i]) Point(0, 0);
+    new (&p2[i]) Point(0, 0);  // placement new ( 2 arguments )
   for (int i = 0; i < 10; i++)
     p2[i].~Point();
   operator delete(p2);

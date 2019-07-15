@@ -57,6 +57,21 @@ void (*f)(int);
 - [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
 ### initailzer_list
 Initializer lists may be implemented as a pair of pointers or pointer and length. Copying a std::initializer_list does not copy the underlying objects.
+### [user define literal](https://en.cppreference.com/w/cpp/language/user_literal)
+```c
+Meter operator""m (unsigned long long n) {
+	cout << "operator m" << endl;
+	Meter m(n);
+	return m;
+}
+Meter v = 10m;	// operator""m(10) 을 호출함. 일반 개발자는 _ 로 시작하는 literal 를 만들어야 한다.
+                // 가급적 사용하지 말자.
+```
+
+### type_traits
+```c
+std::is_polymorphic<T>
+```
 ### thread
 ### mutex, condition_variable, atomic
 ### future, promise, packaged_task

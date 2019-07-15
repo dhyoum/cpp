@@ -1,4 +1,6 @@
-### type deduction
+### type deduction ( auto, template )
+    T a <- parameter
+    auto a = parameter
 ```c
 // 규칙 1. 인자의 타입이 값이면 함수 인자의 const, volatile, reference는 제거됨
 template<typename T> void foo(T a) {
@@ -26,3 +28,29 @@ auto  arr1 = x;	// int arr1[3] = x; error
                 // int arr1  = x; ok : 우변이 배열이면, pointer
 auto& arr2 = x; // int (&arr2[3]) = x; ok 배열의 참조
 ```
+
+### decltype deduction
+- 규칙1. () 안에 심볼의 이름만 있는 경우, 해당 심볼의 선언과 완전히 동일
+```c
+int n;         decltype(n) d1;  // int
+int& r;        decltype(r) d2;  // int&
+const int c;   decltype(c) d3;  // const int
+const int& cr; decltype(cr) d4; // const int &
+```
+- 규칙2. 변수이름에 연산자가 붙어 있는 경우,
+        표현식이 왼쪽에 올 수 있으면 : 참조 타입
+        표현식이 왼쪽에 올 수 없으면 : 값  타입
+```c
+decltype(n+n) d1; // (n+n) = 10 : error -> int
+decltype(++n) d2; // ++n = 10 : ok -> int&
+decltype(n++) d3; // n++ = 10 : error -> int
+```
+ 
+ int& foo() { return x; }
+ auto ret = foo(); // int
+ decltype(foo()) ret2 = foo(); // int&
+ 
+ // after C++14
+ decltype(auto) ret3 = foo();
+ 
+ 

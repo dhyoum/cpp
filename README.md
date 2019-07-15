@@ -6,9 +6,26 @@ void (*f)(int);
 ```
 - member function pointer
 ```c
-void (Class:*f) (int);
-Dialog dlg; (dlg.* f)(20);
-Dialog* pDlg; (pDlg->* f)(20);
+  void (Class:*f) (int);
+  Dialog dlg; (dlg.* f)(20);
+  Dialog* pDlg; (pDlg->* f)(20);
+```
+- placement new : 메모리 할당없이 생성자만 호출하고 싶을때 사용함.
+```c
+  // void* operator new(size_t sz, void* p) { return p; } c++ 표준에 있음
+  Point* p = static_cast<Point*>(operator new(sizeof(Point))); // allocate memory
+  new(p) Point();     // call initializer 
+  p->~Point();        // call destructor
+  operator delete(p);  // dealloc memory
+```
+```c
+  Point* p1 = new Point(0, 0);
+  Point* p2 = static_cast<Point*>(operator new(sizeof(Point) * 10));
+  for (int i = 0; i < 10; i++)
+    new (&p2[i]) Point(0, 0);
+  for (int i = 0; i < 10; i++)
+    p2[i].~Point();
+  operator delete(p2);
 ```
 ### Rvalue reference
 - temporary variable

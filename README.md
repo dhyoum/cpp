@@ -4,13 +4,14 @@
 ```c
 void (*f)(int);
 ```
-- member function pointer
+- member function pointer ( .* , ->* : member access operator )
 ```c
   void (Class:*f) (int);
   Dialog dlg; (dlg.* f)(20);
   Dialog* pDlg; (pDlg->* f)(20);
 ```
-- placement new : 메모리 할당없이 생성자만 호출하고 싶을때 사용함.
+- operator new() : 사용자 정의 메모리 할당 방식 사용 가능 - 첫번째 인자는 size_t 로 해야함.
+- placement new : 생성자만 호출하기 위해서 만든 operator new() 함수 - 인자가 2개이상이고, 내부에 메모리할당이 없음.
 ```c
   // void* operator new(size_t sz, void* p) { return p; } c++ 표준에 있음
   Point* p = static_cast<Point*>(operator new(sizeof(Point))); // allocate memory
@@ -26,6 +27,8 @@ void (*f)(int);
   for (int i = 0; i < 10; i++)
     p2[i].~Point();
   operator delete(p2);
+
+Point *p3 = new Point[3]{ {0,0}, {1,1}, {2,2} }; // after C++11 using braced-init-list
 ```
 ### Rvalue reference
 - temporary variable

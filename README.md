@@ -1,4 +1,4 @@
-# C++11
+# Modern C++
 #### Legacy grammer
 - function pointer
 ```c
@@ -71,6 +71,32 @@ Meter v = 10m;	// operator""m(10) 을 호출함. 일반 개발자는 _ 로 시�
 ### type_traits
 ```c
 std::is_polymorphic<T>
+```
+
+
+### if init ( after C++17 )
+```c
+if (int ret = foo(); ret == 0)
+  cout << "ret is 0" << endl;
+  
+switch(int n=foo(); n){
+  case 0:break;
+  case 1:break;
+}
+```
+### if constexpr ( after C++17 )
+```c
+template<typename T> void printv(T v) {
+  if consexpr (is_pointer<T>::value)
+    cout << v << " : " << *v << endl;
+  else
+    cout << v << " : " << v << endl;
+```
+### structure binding
+```c
+Point pt = {1,2};  auto [a,b] = pt;  auto& [rx, ry] = pt;
+int x[2] = {1,2}; auto [e1, e2] = x;
+tuple<int, short, double> t3(1,2,3.4); auto[a1, a2, a3] = t3;
 ```
 ### thread
 ### mutex, condition_variable, atomic

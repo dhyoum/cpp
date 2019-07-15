@@ -12,7 +12,8 @@ void (*f)(int);
 ```
 - [operator new](https://en.cppreference.com/w/cpp/memory/new/operator_new) : 사용자 정의 메모리 할당 방식 사용 가능 - 첫번째 인자는 size_t 로 해야함.
 - placement new
-  - 생성자만 호출하기 위해서 만든 operator new() 함수
+  - 생성자만 호출하기 위해서 만든 operator new() 함수이다. 
+  - 사실 생성자만 부루는 코드를 작성할 수 없으므로, new 를 호출하되, operator new 를 overloading 해서, 메모리 할당을 없앤다.
   - 인자가 2개이상이고, 내부에 메모리할당이 없음.
   - 마찬가지로, operator delete operator new[] 등도 같이 고려
 ```c

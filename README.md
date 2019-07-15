@@ -1,4 +1,15 @@
 # C++11
+#### Legacy grammer
+- function pointer
+```c
+void (*f)(int);
+```
+- member function pointer
+```c
+void (Class:*f) (int);
+Dialog dlg; (dlg.* f)(20);
+Dialog* pDlg; (pDlg->* f)(20);
+```
 ### Rvalue reference
 - temporary variable
 - RVO

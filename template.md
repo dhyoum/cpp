@@ -44,13 +44,9 @@ const int& cr; decltype(cr) d4; // const int &
 decltype(n+n) d1; // (n+n) = 10 : error -> int
 decltype(++n) d2; // ++n = 10 : ok -> int&
 decltype(n++) d3; // n++ = 10 : error -> int
+
+int& foo() { return x; }
+auto ret = foo(); // int
+decltype(foo()) ret2 = foo(); // int&
+decltype(auto) ret3 = foo();   // after C++14
 ```
- 
- int& foo() { return x; }
- auto ret = foo(); // int
- decltype(foo()) ret2 = foo(); // int&
- 
- // after C++14
- decltype(auto) ret3 = foo();
- 
- 

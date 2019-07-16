@@ -99,3 +99,30 @@ delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 - 클래스안의 내포된 타입 : 내포 클래스 또는 typedef, using 등은 typename class_template::type 으로 명시해야 한다.
 - template 에 의존적인 type 을 명시하기 위해서 사용하는 것이므로, class 가 명확한것은 붙이면 안된다.
 
+### specialization
+```c
+template<typename T> class Stack
+{
+public:
+	void push(T a) { cout << "T" << endl; }
+};
+template<typename T> class Stack<T*>     // partial specialization
+{
+public:
+    void push(T* a) { cout << "T*" << endl; }
+};
+template<> class Stack<char*>           // specializaion
+{
+public:
+    void push(char* a) { cout << "Tchar*" << endl; }
+};
+// 다른 예
+template<typename T, typename U> struct Test
+{
+	void print() { cout << "T, U" << endl; }
+};
+template<typename T> struct Test<T,T> // 중요 - 사용하지 않는 type 은 삭제한다.
+{
+    void print() { cout << "T, T" << endl; }
+};
+```

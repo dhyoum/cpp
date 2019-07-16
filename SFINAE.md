@@ -81,17 +81,15 @@ int main() {
 #include <type_traits>
 using namespace std;
 
-// printv 만들기 
-#ifdef METHOD_1
+// 방법 1
 template<typename T> void printv(T v)
 {
-	if constexpr ( is_pointer<T>::value )		
-		cout << v << " : " << *v << endl;
-	else
-		cout << v << endl;
+  if constexpr ( is_pointer<T>::value )		
+    cout << v << " : " << *v << endl;
+  else
+    cout << v << endl;
 }
-#endif
-#ifdef METHOD_2
+// 방법 2
 template <typename T>
 void printv_imp(T v, true_type) {
     cout << v << " : " << *v << endl;
@@ -103,19 +101,17 @@ void printv_imp(T v, false_type) {
 template<typename T> void printv(T v) {
     printv_imp(v, is_pointer<T>());
 }
-#endif
-#ifdef METHOD_3
+// 방법 3
 template<typename T>
 // typename enable_if<is_pointer<T>::value>::type 
-enable_if_t<is_pointer_v<T>> printv(T v) {
+enable_if_t<is_pointer_v<T>>
+printv(T v) {
     cout << v << " : " << *v << endl;
 }
 template<typename T>
 enable_if_t<!is_pointer_v<T>> printv(T v) {
     cout << v << endl;
 }
-#endif
-
 int main()
 {
 	int n = 10;

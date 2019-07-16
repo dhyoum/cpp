@@ -34,7 +34,7 @@ template<typename T, T N> struct integral_constant {
 };
 integral_constant<short, 0> s0;
 ```
-### 대표적인 사용예
+### 사용예
 1. 타입 질의 : is_xxxx<T>::value
 2. 변형 타입얻기 : xxx<T>::type
 ```c
@@ -45,4 +45,25 @@ template<typename T> struct remove_poiner<T*> {
   using type = T;
 }
 remove_pointer<int*>::type n; // int
+```
+
+- return type 을 알아내는 기술
+```c
+#include <iostream>
+using namespace std;
+int goo(char c, double d) { return 0; }
+template<typename T> struct result_type {
+    using type = T;
+};
+template<typename R, typename A1, typename A2> struct result_type<R(A1, A2)> {
+    using type = R;
+};
+template<typename T> void foo(T& a) {
+	// 함수 반환타입 조사하기.(단, 함수의 인자가 2개일때만)
+	typename result_type<T>::type n = 0;  // int 
+	cout << typeid(n).name() << endl;
+}
+int main() {
+	foo(goo);
+}
 ```

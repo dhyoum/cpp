@@ -140,21 +140,33 @@ template<typename T> void printv(T* a) {
 template<int N> struct int2type {
     enum { value = N };
 };
-
-template<typename T> void printv_imp(T a, int2type<1>)
-{
+```
+- integer 를 type 으로 만들어서, overloading 하는 
+```c
+template<typename T> void printv_imp(T a, int2type<1>) {
     cout << a << " : " << *a << endl;
 }
-template<typename T> void printv_imp(T a, int2type<0>)
-{
+template<typename T> void printv_imp(T a, int2type<0>) {
     cout << a << endl;
 }
-
-template<typename T> void printv(T a)
-{
+template<typename T> void printv(T a) {
     printv_imp(a, int2type<is_pointer<T>::value>());
 }
+```
+- 핵심 ! 특수화를 통해서 기반 class 를 변경해서 사용
+```c
+template<typename T>struct is_pointer : false_type{};
+template<typename T>struct is_pointer<T*> : true_type{};
 
+template<typename T> void printv_imp(T a, true_type) {
+  cout << a << " : " << *a << endl;
+}
+template<typename T> void printv_imp(T a, false_type) {
+  cout << a << endl;
+}
+template<typename T> void printv(T a) {
+  printv_imp(a, is_pointer<T>());	// T 에 따라서, 기반class 가 바뀐다.!
+}
 ```
 ## traits
 - T 의 다양한 특성을 조사하는 기술
@@ -178,9 +190,17 @@ template<typename T, int N> struct IsArray<T[N]> {
     static constexpr bool value = true;
 };
 template<typename T> void foo(T a) {
-	if ( IsPointer<T>::value )
-		cout << "pointer" << endl;
-	else
-		cout << "not pointer" << endl;
+  if ( IsPointer<T>::value )
+    cout << "pointer" << endl;
+  else
+    cout << "not pointer" << endl;
 }
+```
+### [intergal constant](https://en.cppreference.com/w/cpp/types/integral_constant)
+```c
+// C++11 표준
+template<typename T, T N> struct integral_constant {
+  static constexpr T value = N;
+};
+integral_constant<short, 0> s0;
 ```

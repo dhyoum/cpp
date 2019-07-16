@@ -38,8 +38,8 @@ const int c;   decltype(c) d3;  // const int
 const int& cr; decltype(cr) d4; // const int &
 ```
 - 규칙2. 변수이름에 연산자가 붙어 있는 경우,
-        표현식이 왼쪽에 올 수 있으면 : 참조 타입
-        표현식이 왼쪽에 올 수 없으면 : 값  타입
+  - 표현식이 왼쪽에 올 수 있으면 : 참조 타입
+  - 표현식이 왼쪽에 올 수 없으면 : 값  타입
 ```c
 decltype(n+n) d1; // (n+n) = 10 : error -> int
 decltype(++n) d2; // ++n = 10 : ok -> int&

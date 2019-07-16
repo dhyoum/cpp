@@ -1,5 +1,5 @@
-# traits
-## T 의 다양한 특성을 조사하는 기술
+# Traits
+## compile 시점에 template T 다양한 특성을 조사하는 기술
 - primary template 만듦 ( enum { value = false } )
 - partial specialization 원하는 조건문 만들고, value = true
 ```c

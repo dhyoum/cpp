@@ -141,7 +141,7 @@ template<int N> struct int2type {
     enum { value = N };
 };
 ```
-- integer 를 type 으로 만들어서, overloading 하는 
+- integer 를 type 으로 만들어서, overloading 하는 방법
 ```c
 template<typename T> void printv_imp(T a, int2type<1>) {
     cout << a << " : " << *a << endl;
@@ -153,7 +153,7 @@ template<typename T> void printv(T a) {
     printv_imp(a, int2type<is_pointer<T>::value>());
 }
 ```
-- 핵심 ! 특수화를 통해서 기반 class 를 변경해서 사용
+- 핵심 ! 특수화를 통해서 base class 를 변경한다.
 ```c
 template<typename T>struct is_pointer : false_type{};
 template<typename T>struct is_pointer<T*> : true_type{};

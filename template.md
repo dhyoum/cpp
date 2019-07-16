@@ -65,7 +65,7 @@ auto mul(T1 a, T2 b) // auto 로 추론하기 때문에, reference type 이 사�
     return a*b;
 }
 template<typename T1, typename T2>
-delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 
+delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 {
     return a*b;
 }

@@ -81,7 +81,7 @@ std::is_polymorphic<T>
 ```
 
 
-### if init ( after C++17 )
+### if init ( since C++17 )
 ```c
 if (int ret = foo(); ret == 0)
   cout << "ret is 0" << endl;
@@ -91,7 +91,7 @@ switch(int n=foo(); n){
   case 1:break;
 }
 ```
-### if constexpr ( after C++17 )
+### if constexpr ( since C++17 )
 ```c
 template<typename T> void printv(T v) {
   if consexpr (is_pointer<T>::value)

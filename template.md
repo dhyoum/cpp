@@ -59,10 +59,19 @@ decltype(n+n) d1; // (n+n) = 10 : error -> int
 decltype(++n) d2; // ++n = 10 : ok -> int&
 decltype(n++) d3; // n++ = 10 : error -> int
 
+int a = 10, b = 20;
+int& c = a;
+cout << boost::typeindex::type_id_with_cvr<decltype(a+b)>().pretty_name() << endl;
+cout << boost::typeindex::type_id_with_cvr<decltype(c)>().pretty_name() << endl;
+cout << boost::typeindex::type_id_with_cvr<decltype(++a)>().pretty_name() << endl;
+cout << boost::typeindex::type_id_with_cvr<decltype(a++)>().pretty_name() << endl;
+
 int& foo() { return x; }
 auto ret = foo(); // int
 decltype(foo()) ret2 = foo(); // int&
 decltype(auto) ret3 = foo();   // after C++14
+
+
 ```
 
 ### suffix return type

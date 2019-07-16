@@ -94,3 +94,6 @@ delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 }
 ```
 
+### typename 의 필요성
+- 클래스안의 내포된 값 : enum 또는 static 멤버데이터  : MyClass::data
+- 클래스안의 내포된 타입 : 내포 클래스 또는 typedef 등 : MyClass:type

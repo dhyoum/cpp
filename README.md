@@ -78,13 +78,6 @@ Meter operator""m (unsigned long long n) {
 Meter v = 10m;	// operator""m(10) 을 호출함. 일반 개발자는 _ 로 시작하는 literal 를 만들어야 한다.
                 // 가급적 사용하지 말자.
 ```
-
-### type_traits
-```c
-std::is_polymorphic<T>
-```
-
-
 ### if init ( since C++17 )
 ```c
 if (int ret = foo(); ret == 0)
@@ -119,5 +112,5 @@ tuple<int, short, double> t3(1,2,3.4); auto[a1, a2, a3] = t3;
 - [cpprefernece](https://en.cppreference.com/w/)
 - [modoo](https://modoocode.com/135)
 - [soen](http://soen.kr/)
-- [mingw](https://nuwen.net/)\
+- [mingw](https://nuwen.net/)
 - [Idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)

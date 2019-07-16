@@ -3,21 +3,21 @@
 2. C++ 생성후, 다시 컴파일
 - 이코드는 error 발생하지 않음. foo 가 호출된적이 없어서, T 가 결정되지 않았으므로, goo 역시 결정되지 않음.
 ```c
-template<typename T> void foo(T a) {
+template<typename T>
+void foo(T a) {
   goo(a);
 }
 int main() {
 }
 ```
-
 ### type deduction ( auto, template )
     T a <- parameter
     auto a = parameter
 - 규칙 1. 인자의 타입이 값이면 함수 인자의 const, volatile, reference는 제거됨    
 ```c
 
-template<typename T> void foo(T a) {
-}
+template<typename T>
+void foo(T a) { }
 
 int n = 10;        foo(n);  // T:int, a:int
 int&r = n;         foo(r);  // T:int, a:int
@@ -29,8 +29,8 @@ const char* const s2 = "hello"; foo(s2);  // T : const char*
 ```
 - 규칙 2. 인자의 타입이 참조이면,  함수 인자의 reference는 제거되고, const, volatile 는 유지됨
 ```
-template<typename T> void foo(T& a) {
-}
+template<typename T>
+void foo(T& a) { }
 
 int n = 10;        foo(n);   // T:int, a:int&
 int&r = n;         foo(r);   // T:int, a:int&
@@ -51,9 +51,9 @@ int& r;        decltype(r) d2;  // int&
 const int c;   decltype(c) d3;  // const int
 const int& cr; decltype(cr) d4; // const int &
 ```
-- 규칙2. 변수이름에 연산자가 붙어 있는 경우,
-  - 표현식이 왼쪽에 올 수 있으면 : 참조 타입
-  - 표현식이 왼쪽에 올 수 없으면 : 값  타입
+- 규칙2. 변수이름에 연산자가 붙어 있는 경우,    
+  L-value : **참조** 타입
+  R-value : **값**  타입
 ```c
 decltype(n+n) d1; // (n+n) = 10 : error -> int
 decltype(++n) d2; // ++n = 10 : ok -> int&
@@ -70,7 +70,6 @@ int& foo() { return x; }
 auto ret = foo(); // int
 decltype(foo()) ret2 = foo(); // int&
 decltype(auto) ret3 = foo();   // after C++14
-
 
 ```
 
@@ -100,9 +99,11 @@ delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 - template 에 의존적인 type 을 명시하기 위해서 사용하는 것이므로, class 가 명확한것은 붙이면 안된다.
 
 ### specialization
-- 클래스 템플릿 : 부분 특수화(partial specialization), 완전 특수화(full specialization)
+- 클래스 템플릿
+  + 부분 특수화(partial specialization) : template parameter 완전히 사라지지 않음.
+  + 완전 특수화(full specialization) : primary template 에서 파라미터
 - 함수 템플릿 : 완전 특수화(full specialization)만 가능, 
-- 함수 템플릿은 오버로딩을 통해서 부분 특수화와 같은 효과를 얻음.
+  + 오버로딩을 통해서 부분 특수화와 같은 효과를 얻음.
 ```c
 template<typename T> struct Stack {
     void push(T a) { cout << "T" << endl; }
@@ -168,4 +169,3 @@ template<typename T> void printv(T a) {
   printv_imp(a, is_pointer<T>());	// T 에 따라서, 기반class 가 바뀐다.!
 }
 ```
-

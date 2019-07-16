@@ -101,28 +101,20 @@ delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 
 ### specialization
 ```c
-template<typename T> class Stack
-{
-public:
+template<typename T> struct Stack {
 	void push(T a) { cout << "T" << endl; }
 };
-template<typename T> class Stack<T*>     // partial specialization
-{
-public:
+template<typename T> struct Stack<T*> {  // partial specialization
     void push(T* a) { cout << "T*" << endl; }
 };
-template<> class Stack<char*>           // specializaion
-{
-public:
+template<> struct Stack<char*> {         // specializaion
     void push(char* a) { cout << "Tchar*" << endl; }
 };
 // 다른 예
-template<typename T, typename U> struct Test
-{
-	void print() { cout << "T, U" << endl; }
+template<typename T, typename U> struct Test {
+    void print() { cout << "T, U" << endl; }
 };
-template<typename T> struct Test<T,T> // 중요 - 사용하지 않는 type 은 삭제한다.
-{
+template<typename T> struct Test<T,T> { // 중요 - 사용하지 않는 type 은 삭제한다.
     void print() { cout << "T, T" << endl; }
 };
 ```

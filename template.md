@@ -100,6 +100,9 @@ delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 - template 에 의존적인 type 을 명시하기 위해서 사용하는 것이므로, class 가 명확한것은 붙이면 안된다.
 
 ### specialization
+- 클래스 템플릿 : 부분 특수화(partial specialization), 완전 특수화(full specialization)
+- 함수 템플릿 : 완전 특수화(full specialization)만 가능, 
+- 함수 템플릿은 오버로딩을 통해서 부분 특수화와 같은 효과를 얻음.
 ```c
 template<typename T> struct Stack {
     void push(T a) { cout << "T" << endl; }
@@ -123,4 +126,32 @@ template<typename T, typename U, typename V> struct Test<T, Test<U, V>> {
     void print() { cout << "T, Test<U,V>" << endl; }
 };
 Test<int, Test<char, int>>  t6; t6.print(); // T, Test<U,V>
+```
+## traits
+- T 의 다양한 특성을 조사하는 기술
+  - primary template 만듦 ( enum { value = false } )
+  - partial specialization 원하는 조건문 만들고, value = true
+```c
+// T 가 포인터인지 조사하는 기술
+template<typename T> struct IsPointer{
+    // enum { value = false }; // to caculate compile time before c++11 : data type 이 int
+    static constexpr bool value = false; // since c++11 : data type 이 bool
+};
+template<typename T> struct IsPointer<T*> {
+    // enum { value = true };
+    static constexpr bool value = true;
+};
+// T 가 Array 인지 조사하는 기술
+template<typename T> struct IsArray {
+    static constexpr bool value = false;
+};
+template<typename T, int N> struct IsArray<T[N]> {
+    static constexpr bool value = true;
+};
+template<typename T> void foo(T a) {
+	if ( IsPointer<T>::value )
+		cout << "pointer" << endl;
+	else
+		cout << "not pointer" << endl;
+}
 ```

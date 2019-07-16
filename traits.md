@@ -71,3 +71,16 @@ int main() {
   foo(goo);
 }
 ```
+#### using 을 활용하는 기법 ( since C++14 )
+- value : is_pointer<T>::value,   -> using 버전 is_pointer_v
+- type  : remove_pointer<T>::type -> using 버전 remove_pointer_t
+```c
+template<typename T>
+using remove_pointer_t = 
+  typename remove_pointer<T>::type;
+
+template<typename T> void foo(T a) {
+  // typename remove_pointer<T>::type n1;
+  remove_pointer_t<T> n1;
+}
+```

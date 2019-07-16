@@ -112,10 +112,9 @@ template<typename T>
 enable_if_t<!is_pointer_v<T>> printv(T v) {
     cout << v << endl;
 }
-int main()
-{
-	int n = 10;
-	printv(n);
-	printv(&n);
+int main() {
+  int n = 10;
+  printv(n);
+  printv(&n);
 }
 ```

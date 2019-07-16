@@ -75,6 +75,9 @@ int main() {
 - value : is_pointer<T>::value,   -> using 버전 is_pointer_v
 - type  : remove_pointer<T>::type -> using 버전 remove_pointer_t
 ```c
+tempalte<typename T>
+constexpr bool is_pointer_v = is_pointer<T>::value;    
+    
 template<typename T>
 using remove_pointer_t = 
   typename remove_pointer<T>::type;

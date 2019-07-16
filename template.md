@@ -127,6 +127,35 @@ template<typename T, typename U, typename V> struct Test<T, Test<U, V>> {
 };
 Test<int, Test<char, int>>  t6; t6.print(); // T, Test<U,V>
 ```
+
+- funciton template
+```c
+template<typename T> void printv(T a) {
+	cout << a << endl;
+}
+// function overloading : 동일한 이름이 파라미터 종류가 다름
+template<typename T> void printv(T* a) { 
+    cout << a << ":" << *a << endl;
+}
+template<int N> struct int2type {
+    enum { value = N };
+};
+
+template<typename T> void printv_imp(T a, int2type<1>)
+{
+    cout << a << " : " << *a << endl;
+}
+template<typename T> void printv_imp(T a, int2type<0>)
+{
+    cout << a << endl;
+}
+
+template<typename T> void printv(T a)
+{
+    printv_imp(a, int2type<is_pointer<T>::value>());
+}
+
+```
 ## traits
 - T 의 다양한 특성을 조사하는 기술
   - primary template 만듦 ( enum { value = false } )

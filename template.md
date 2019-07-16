@@ -50,3 +50,19 @@ auto ret = foo(); // int
 decltype(foo()) ret2 = foo(); // int&
 decltype(auto) ret3 = foo();   // after C++14
 ```
+
+### suffix return type
+```c
+template<typename T1, typename T2>
+auto mul(T1 a, T2 b) -> decltype(a*b) 
+{
+    return a*b;
+}
+// since C++14
+template<typename T1, typename T2>
+auto mul(T1 a, T2 b)
+{
+    return a*b;
+}
+```
+

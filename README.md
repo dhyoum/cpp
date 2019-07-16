@@ -59,7 +59,7 @@ Point *p3 = new Point[3]{ {0,0}, {1,1}, {2,2} }; // after C++11 using braced-ini
 - how to check the type deduction ?
 ```c
   std::cout << type_id_with_cvr<T>().pretty_name() << std::endl;
-   std::cout << type_id_with_cvr<decltype(param)>().pretty_name() << std::endl;
+  std::cout << type_id_with_cvr<decltype(param)>().pretty_name() << std::endl;
 ```
 ### const / constexpr
 - compile time constant

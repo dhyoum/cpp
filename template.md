@@ -1,8 +1,9 @@
 ### type deduction ( auto, template )
     T a <- parameter
     auto a = parameter
+- 규칙 1. 인자의 타입이 값이면 함수 인자의 const, volatile, reference는 제거됨    
 ```c
-// 규칙 1. 인자의 타입이 값이면 함수 인자의 const, volatile, reference는 제거됨
+
 template<typename T> void foo(T a) {
 }
 
@@ -13,8 +14,9 @@ const int& cr = c; foo(cr); // T:int, a:int
 
 const char* s = "hello";        foo(s);   // T : const char*
 const char* const s2 = "hello"; foo(s2);  // T : const char*
-
-// 규칙 2. 인자의 타입이 참조이면,  함수 인자의 reference는 제거되고, const, volatile 는 유지됨
+```
+- 규칙 2. 인자의 타입이 참조이면,  함수 인자의 reference는 제거되고, const, volatile 는 유지됨
+```
 template<typename T> void foo(T& a) {
 }
 
@@ -54,20 +56,14 @@ decltype(auto) ret3 = foo();   // after C++14
 ### suffix return type
 ```c
 template<typename T1, typename T2>
-auto mul(T1 a, T2 b) -> decltype(a*b) 
-{
-    return a*b;
-}
+auto mul(T1 a, T2 b) -> decltype(a*b)
+{ return a*b; }
 // since C++14
 template<typename T1, typename T2>
 auto mul(T1 a, T2 b) // auto 로 추론하기 때문에, reference type 이 사라질 수 있다.
-{
-    return a*b;
-}
+{ return a*b; }
 template<typename T1, typename T2>
 delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
-{
-    return a*b;
-}
+{ return a*b; }
 ```
 

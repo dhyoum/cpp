@@ -6,7 +6,7 @@ struct xtuple {
 
 // parital specialization
 template<typename T, typename... Ts>
-struct xtuple<T, Ts...> : xtuple<Ts...> {
+struct xtuple<T, Ts...> : xtuple<Ts...> {   // 어떻게 여기다 이렇게??
     using BaseType = xtuple<Ts...>;
     
     T value;

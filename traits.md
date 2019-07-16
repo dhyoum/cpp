@@ -59,11 +59,11 @@ template<typename R, typename A1, typename A2> struct result_type<R(A1, A2)> {
     using type = R;
 };
 template<typename T> void foo(T& a) {
-	// 함수 반환타입 조사하기.(단, 함수의 인자가 2개일때만)
-	typename result_type<T>::type n = 0;  // int 
-	cout << typeid(n).name() << endl;
+  // 함수 반환타입 조사하기.(단, 함수의 인자가 2개일때만)
+  typename result_type<T>::type n = 0;  // int 
+  cout << typeid(n).name() << endl;
 }
 int main() {
-	foo(goo);
+  foo(goo);
 }
 ```

@@ -119,4 +119,5 @@ tuple<int, short, double> t3(1,2,3.4); auto[a1, a2, a3] = t3;
 - [cpprefernece](https://en.cppreference.com/w/)
 - [modoo](https://modoocode.com/135)
 - [soen](http://soen.kr/)
-- [mingw](https://nuwen.net/)
+- [mingw](https://nuwen.net/)\
+- [Idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)

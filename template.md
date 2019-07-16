@@ -102,7 +102,7 @@ delcltype(auto) mul(T1 a, T2 b) // auto 추론시 reference 를 유지
 ### specialization
 ```c
 template<typename T> struct Stack {
-	void push(T a) { cout << "T" << endl; }
+    void push(T a) { cout << "T" << endl; }
 };
 template<typename T> struct Stack<T*> {  // partial specialization
     void push(T* a) { cout << "T*" << endl; }
@@ -117,4 +117,10 @@ template<typename T, typename U> struct Test {
 template<typename T> struct Test<T,T> { // 중요 - 사용하지 않는 type 은 삭제한다.
     void print() { cout << "T, T" << endl; }
 };
+
+// 중요 : template 파라미터의 개수는 늘거나, 줄수있지만, 실제 사용되는 부분의 개수는 고정이다.
+template<typename T, typename U, typename V> struct Test<T, Test<U, V>> {
+    void print() { cout << "T, Test<U,V>" << endl; }
+};
+Test<int, Test<char, int>>  t6; t6.print(); // T, Test<U,V>
 ```

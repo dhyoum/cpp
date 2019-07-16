@@ -11,7 +11,6 @@ void foo_imp(T a, true_type) {
 void foo_imp(T a, false_type) {
    *a = 10;
 }
-
 // Method. 1  : restrist 
 void foo(T a) {
     if ( is_pointer<T>::value)

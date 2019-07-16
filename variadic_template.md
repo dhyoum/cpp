@@ -65,3 +65,17 @@ int main() {
     foo(1, 2, 3);
 }
 ```
+#### 재귀를 이용한 args 접근
+```c
+// void foo() {} 또는
+template<typename T, typename ... Types>
+void foo(T value, Types ... args) {
+  cout << value << endl;
+  if constexpr(sizeof...(args)>0)
+    foo(args...);  // foo(4.5, "hello");
+                   // foo("hello");
+}
+int main() {
+  foo(3, 4.5, "hello"); // value : 3, args : 4.5, "hello"
+}
+```

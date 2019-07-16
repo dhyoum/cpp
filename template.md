@@ -1,3 +1,16 @@
+### template compile
+1. 템플릿 문법 컴파일
+2. C++ 생성후, 다시 컴파일
+template<typename T> void foo(T a)
+{
+	goo(a); // 이코드는 error 발생하지 않음. foo 가 호출된적이 없어서, T 가 결정되지 않았으므로, goo 역시 결정되지 않음.
+}
+int main()
+{
+
+}
+
+
 ### type deduction ( auto, template )
     T a <- parameter
     auto a = parameter

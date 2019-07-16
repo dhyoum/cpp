@@ -47,7 +47,7 @@ template<typename T> struct remove_poiner<T*> {
 remove_pointer<int*>::type n; // int
 ```
 
-- return type 을 알아내는 기술
+  - return type 을 알아내는 기술
 ```c
 #include <iostream>
 using namespace std;

@@ -45,9 +45,10 @@ Point *p3 = new Point[3]{ {0,0}, {1,1}, {2,2} }; // after C++11 using braced-ini
 ### Move semantics
 - ownership move
 - casting
+- rule of 5, noexcept
 - POD / trivial
 ```c
-static_cast<int&&>() --> std::move()
+static_cast<int&&>() => std::move()
 ```
 ### [Universal reference](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)
 ### Perfect forwarding

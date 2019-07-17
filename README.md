@@ -50,6 +50,10 @@ Point *p3 = new Point[3]{ {0,0}, {1,1}, {2,2} }; // after C++11 using braced-ini
 ```c
 static_cast<int&&>() => std::move()
 ```
+- call by value 에 의한 함수동작도 나쁘지 않다. ( 추가비용 : move 1회 )
+```c
+void setObject(Object o) { obj = move(o); }
+```
 ### [Universal reference](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)
 ### Perfect forwarding
 - what is the concept of forwarding ?

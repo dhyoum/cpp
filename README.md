@@ -65,12 +65,12 @@ void func(T&& arg)
 func(10);
 func(x);
 ```
-- variadic template 와 결합
+- variadic template 와 return 값도 전달하려면...
 ```c
 template<typename F, typename ... Ts>
-void chronometry(F f, Ts&& ... arg)
+decltype(auto) chronometry(F f, Ts&& ... arg)
 {
-    f(std::forward<Ts>(arg)...);
+    return f(std::forward<Ts>(arg)...);   // parameter expansion 의 	
 }
 ```
 ### Smart pointer
@@ -78,6 +78,7 @@ void chronometry(F f, Ts&& ... arg)
 - polymophism
 - unique_ptr : [how to implement for pImpl idiom?](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/) 
 - shared_ptr : [how to cast?](https://stackoverflow.com/questions/1358143/downcasting-shared-ptrbase-to-shared-ptrderived)
+
 ### Lambda function
 - review the global function
 - how to capture ?

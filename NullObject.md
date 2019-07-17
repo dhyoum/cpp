@@ -1,3 +1,7 @@
+#### Null object Design Pattern
+- Object 가 Null 이 되는 경우에 대한 default 처리를 수행한다.
+
+```c
 #include <iostream>
 using namespace std;
 
@@ -28,3 +32,4 @@ int main()
     p->call_f3(); // f3(p) => f3(0)
     return 0;
 }
+```

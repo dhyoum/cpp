@@ -12,6 +12,8 @@
 - coroutines do not resemble threads, more closely resembles an ordinary function,
 - [coroutine in C](https://gist.github.com/aprell/1951574)
 
+### boost::fiber
+
 The fiber library extends the coroutine library by **adding a scheduler and the aforementioned synchronization mechanisms.**
 
 • a coroutine yields -> it passes control directly to its caller (or, in the case of symmetric coroutines, a designated

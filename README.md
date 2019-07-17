@@ -53,7 +53,17 @@ static_cast<int&&>() --> std::move()
 ### Perfect forwarding
 - what is the concept of forwarding ?
 ```c
-static_cast<T&&>() --> std::forward<T>()
+template<typename T>
+void func(T&& arg)
+{
+    // arg 은 lvalue
+    static_cast<T&&>(arg); 
+    // 10(rvalue) -> arg(lvalue) -> rvalue
+    // x (lvalue) -> arg(lvalue) -> lvalue
+    // static_cast<T&&>() => std::forward<T>() 와 동일
+}
+func(10);
+func(x);
 ```
 ### Smart pointer
 - RAII again
@@ -119,8 +129,9 @@ tuple<int, short, double> t3(1,2,3.4); auto[a1, a2, a3] = t3;
 
 ### link
 - [cpp core guide](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+- [Idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)
 - [cpprefernece](https://en.cppreference.com/w/)
 - [modoo](https://modoocode.com/135)
 - [soen](http://soen.kr/)
+- [godbolt](https://godbolt.org/)
 - [mingw](https://nuwen.net/)
-- [Idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)

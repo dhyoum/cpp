@@ -1,4 +1,4 @@
-#### Template 에서의 reference 사용
+#### Template 에서의 reference
 - T& : 임의의 타입의 lvalue 만 전달가능
 ```c
 template<typename T>

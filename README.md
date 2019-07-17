@@ -101,7 +101,9 @@ decltype(auto) LOG_FUNC(F f, Ts&& ... arg)
 ### Uniform initialize 
 - [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
 ### initailzer_list
-Initializer lists may be implemented as a pair of pointers or pointer and length. Copying a std::initializer_list does not copy the underlying objects.
+Initializer lists may be implemented as a pair of pointers or pointer and length.    
+Copying a std::initializer_list does not copy the underlying objects.
+
 ### [user define literal](https://en.cppreference.com/w/cpp/language/user_literal)
 ```c
 Meter operator""m (unsigned long long n) {

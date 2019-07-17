@@ -65,6 +65,14 @@ void func(T&& arg)
 func(10);
 func(x);
 ```
+- variadic template 와 결합
+```c
+template<typename F, typename ... Ts>
+void chronometry(F f, Ts&& ... arg)
+{
+    f(std::forward<Ts>(arg)...);
+}
+```
 ### Smart pointer
 - RAII again
 - polymophism

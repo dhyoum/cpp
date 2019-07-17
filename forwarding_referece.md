@@ -12,7 +12,7 @@ int main() {
     f(n); // T : int
 }
 ```
-- T&& : 임의의 타입의 lvalue 와 rlavue 모두 전달가능 : Forwarding reference
+- T&& : 임의의 타입의 lvalue 와 rlavue 모두 전달가능 : **Forwarding reference**
 ```c
 template<typename T>
 void f(T&& t) {}

@@ -151,3 +151,4 @@ tuple<int, short, double> t3(1,2,3.4); auto[a1, a2, a3] = t3;
 - [soen](http://soen.kr/)
 - [godbolt](https://godbolt.org/)
 - [mingw](https://nuwen.net/)
+- [Modern C++ Design](http://index-of.co.uk/C++/C++%20Design%20Generic%20Programming%20and%20Design%20Patterns%20Applied.pdf)

@@ -46,11 +46,14 @@ Point *p3 = new Point[3]{ {0,0}, {1,1}, {2,2} }; // after C++11 using braced-ini
 - ownership move
 - casting
 - POD / trivial
+```c
+static_cast<int&&>() --> std::move()
+```
 ### [Universal reference](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)
 ### Perfect forwarding
 - what is the concept of forwarding ?
 ```c
-static_cast<T&&>()
+static_cast<T&&>() --> std::forward<T>()
 ```
 ### Smart pointer
 - RAII again

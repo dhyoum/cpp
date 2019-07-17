@@ -69,7 +69,7 @@ func(x);
 - variadic template 와 return 값도 전달하려면...
 ```c
 template<typename F, typename ... Ts>
-decltype(auto) chronometry(F f, Ts&& ... arg)
+decltype(auto) LOG_FUNC(F f, Ts&& ... arg)
 {
     return f(std::forward<Ts>(arg)...);   // parameter expansion 의 	
 }

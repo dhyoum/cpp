@@ -13,6 +13,7 @@ int main() {
 }
 ```
 - T&& : 임의의 타입의 lvalue 와 rlavue 모두 전달가능 : **Forwarding reference**
+  * 자동으로 두가지 버전의 함수를 만들어준다. 그것도 reference 가 붙은 형태로..
 ```c
 template<typename T>
 void f(T&& t) {}

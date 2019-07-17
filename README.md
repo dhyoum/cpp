@@ -35,15 +35,18 @@ void (*f)(int);
 
 Point *p3 = new Point[3]{ {0,0}, {1,1}, {2,2} }; // after C++11 using braced-init-list
 ```
-### Rvalue reference
+### [Rvalue reference](https://stackoverflow.com/questions/28483250/rvalue-reference-is-treated-as-an-lvalue)
 - temporary variable
-- RVO
+- RVO / NRVO
 - RAII ( ownership )
+- referece collapsing
+  - An rvalue reference to an rvalue reference becomes (“collapses into”) an rvalue reference.
+  - All other references to references (i.e., all combinations involving an lvalue reference) collapse into an lvalue reference.
 ### Move semantics
 - ownership move
 - casting
 - POD / trivial
-### Universal reference
+### [Universal reference](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)
 ### Perfect forwarding
 - what is the concept of forwarding ?
 ### Smart pointer

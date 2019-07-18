@@ -26,4 +26,9 @@ int main() {
   f(10); // f(int&&);
   f(n);  // f(int&);
 }
+
+auto&& c = a;
+auto&& d = 0;
+cout << boost::typeindex::type_id_with_cvr<decltype(c)>().pretty_name() << endl;  // int&
+cout << boost::typeindex::type_id_with_cvr<decltype(d)>().pretty_name() << endl;  // int&&
 ```

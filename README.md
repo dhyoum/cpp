@@ -101,7 +101,7 @@ decltype(auto) LOG_FUNC(F f, Ts&& ... arg)
 ### Uniform initialize 
 - [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
 - [copy initialization](https://en.cppreference.com/w/cpp/language/copy_initialization) 은 의도치 않은 형변환이 발생할 수 있으므로,    
-  이를 막기 위해서, 암묵적 형변환을 막는 explicit 를 변환 생성자에 사용에 추가한다.
+  이를 막기 위해서, 암묵적 형변환을 막는 explicit 를 변환 생성자에 가한다.
 ### initailzer_list
 Initializer lists may be implemented as a pair of pointers or pointer and length.    
 Copying a std::initializer_list does not copy the underlying objects.

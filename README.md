@@ -152,3 +152,5 @@ tuple<int, short, double> t3(1,2,3.4); auto[a1, a2, a3] = t3;
 - [godbolt](https://godbolt.org/)
 - [mingw](https://nuwen.net/)
 - [Modern C++ Design](http://index-of.co.uk/C++/C++%20Design%20Generic%20Programming%20and%20Design%20Patterns%20Applied.pdf)
+- [Effective C++](https://doc.lagout.org/programmation/C/Addison.Wesley.Effective.CPP.3rd.Edition.May.2005.pdf)
+- [Effective Modern C++](https://moodle.ufsc.br/pluginfile.php/2377667/mod_resource/content/0/Effective_Modern_C__.pdf)

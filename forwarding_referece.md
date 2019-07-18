@@ -31,4 +31,9 @@ auto&& c = a;
 auto&& d = 0;
 cout << boost::typeindex::type_id_with_cvr<decltype(c)>().pretty_name() << endl;  // int&
 cout << boost::typeindex::type_id_with_cvr<decltype(d)>().pretty_name() << endl;  // int&&
+
+vector<int> v1(32);   auto a1 = v1[0];  // auto& a1 = v1[0] ok    - lvalue return
+vector<bool> v2(32);  auto a2 = v2[0];  // auto& a2 = v2[0] error - rvalue return
+cout << boost::typeindex::type_id_with_cvr<decltype(a1)>().pretty_name() << endl; // int
+cout << boost::typeindex::type_id_with_cvr<decltype(a2)>().pretty_name() << endl; // std::_Bit_reference
 ```

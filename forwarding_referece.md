@@ -37,3 +37,16 @@ vector<bool> v2(32);  auto a2 = v2[0];  // auto& a2 = v2[0] error - rvalue retur
 cout << boost::typeindex::type_id_with_cvr<decltype(a1)>().pretty_name() << endl; // int
 cout << boost::typeindex::type_id_with_cvr<decltype(a2)>().pretty_name() << endl; // std::_Bit_reference
 ```
+
+```c
+template<typename F, typename ... Types> 
+decltype(auto) chronometry(F&& f, Types&& ... args)
+{
+	// return std::forward<F>(f)(std::forward<Types>(args)...);
+    // invoke : member funtion 을 호출하기 위해서 사용
+    // std::forward<F>(f) // f 가 functor 일 수 있으므로, lvalue, rvalue 를 명확하게 전달할 필요가 있음.
+    // std::forward<Types>(args)... 
+    return std::invoke(std::forward<F>(f), 
+                       std::forward<Types>(args)...);
+}
+```

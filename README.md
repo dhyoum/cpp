@@ -102,6 +102,8 @@ decltype(auto) LOG_FUNC(F f, Ts&& ... arg)
 - [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
 - [copy initialization](https://en.cppreference.com/w/cpp/language/copy_initialization) 은 의도치 않은 형변환이 발생할 수 있으므로,    
   이를 막기 위해서, 암묵적 형변환을 막는 explicit 를 변환 생성자에 가한다.
+- [aggregate](https://en.cppreference.com/w/cpp/language/aggregate_initialization)    
+  생성자가 없어도, { } 로 초기화 가능한 타입을 aggregate 라고 함. ( 배열, 구조체 등 )
 ### initailzer_list
 Initializer lists may be implemented as a pair of pointers or pointer and length.    
 Copying a std::initializer_list does not copy the underlying objects.

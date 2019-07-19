@@ -83,6 +83,12 @@ decltype(auto) LOG_FUNC(F f, Ts&& ... arg)
 - how to capture ?
 - [closure](https://en.wikipedia.org/wiki/Closure_(computer_programming))
 - free variable
+ ```c
+int v = 10;
+auto f = [&v](int a) { v = a; };
+// decltype(f) f1; error  : 캡쳐된 변수가 없는 체로 복사되는 것은 의미가 없음. default 생성자자 없음.
+decltype(f) f1(f); // 복사생성만 가능하다.
+```
 ### auto
 - how to check the type deduction ?
 ```c

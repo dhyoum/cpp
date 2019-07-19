@@ -78,15 +78,6 @@ decltype(auto) LOG_FUNC(F f, Ts&& ... arg)
     return f(std::forward<Ts>(arg)...);   // parameter expansion 의 	
 }
 ```
-### Smart pointer
-- RAII again
-- polymophism
-- unique_ptr : 자원 독점    
-  : [how to implement for pImpl idiom?](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/) 
-- shared_ptr : 자원 공유    
-  : [how to cast?](https://stackoverflow.com/questions/1358143/downcasting-shared-ptrbase-to-shared-ptrderived)
-- weak_ptr : 자원 
-
 ### Lambda function
 - review the global function
 - how to capture ?

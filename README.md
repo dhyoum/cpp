@@ -98,12 +98,28 @@ decltype(f) f1(f); // 복사생성만 가능하다.
 ### const / constexpr
 - compile time constant
 - constexpr constructor
-### Uniform initialize 
+
+### Object initialize
+
 - [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
-- [copy initialization](https://en.cppreference.com/w/cpp/language/copy_initialization) 은 의도치 않은 형변환이 발생할 수 있으므로,    
-  이를 막기 위해서, 암묵적 형변환을 막는 explicit 를 변환 생성자에 가한다.
+- [direct initialization](https://en.cppreference.com/w/cpp/language/direct_initialization)   
+   객체를 초기화할 때, = 없이, () 또는 {}를 사용해서 초기화하는 것
+- [copy initialization](https://en.cppreference.com/w/cpp/language/copy_initialization)  
+   객체를 초기화할 때, = 를 사용해서 초기화 하는것. 
+   의도치 않은 형변환이 발생할 수 있으므로, 이를 막기 위해서, 암묵적 형변환을 막는 explicit 를 변환 생성자에 가한다.
+- [default initialization](https://en.cppreference.com/w/cpp/language/default_initialization)   
+   초기화 방법을 사용하지 않고, 객체를 생성하는 것
+- [value initialization](https://en.cppreference.com/w/cpp/language/value_initialization)   
+   비어 있는 brace-init 을 사용해서 객체를 생성하는 것.
+```c
+int n1{0};    // direct
+int n2 = {0}; // copy
+int n3;       // dafault
+int n4{};     // value
+```
 - [aggregate](https://en.cppreference.com/w/cpp/language/aggregate_initialization)    
   생성자가 없어도, { } 로 초기화 가능한 타입을 aggregate 라고 함. ( 배열, 구조체 등 )
+### Uniform initialize
 ### initailzer_list
 Initializer lists may be implemented as a pair of pointers or pointer and length.    
 Copying a std::initializer_list does not copy the underlying objects.

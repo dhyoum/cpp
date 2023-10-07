@@ -1,5 +1,5 @@
 # Modern C++
-#### Legacy grammer
+#### Legacy grammar
 - function pointer
 ```c
 void (*f)(int);
